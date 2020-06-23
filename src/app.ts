@@ -25,6 +25,9 @@ createConnection()
      * Application configuration
      */
     app.use(helmet())
+    app.use(compression())
+    app.use(express.static('client/build'))
+
     app.use(rateLimit({
       windowMs: 15 * 60 * 1000, // 15 minutes
       max: 25, // Limit each IP to 25 requests per windowMs
@@ -36,9 +39,6 @@ createConnection()
     }))
     app.use(bodyParser.urlencoded({ extended: false }))
     app.use(bodyParser.json())
-    app.use(compression())
-
-    app.use(express.static('client/build'))
 
     app.use(urlRoutes)
 
