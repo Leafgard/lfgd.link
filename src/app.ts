@@ -6,6 +6,7 @@ import 'reflect-metadata'
 
 import express from 'express'
 import helmet from 'helmet'
+import rateLimit from 'express-rate-limit'
 import compression from 'compression'
 import bodyParser from 'body-parser'
 
@@ -23,8 +24,11 @@ createConnection()
     /**
      * Application configuration
      */
-    // TODO: Add rate limiter
     app.use(helmet())
+    app.use(rateLimit({
+      windowMs: 15 * 60 * 1000, // 15 minutes
+      max: 100 // Limit each IP to 100 requests per windowMs
+    }))
     app.use(bodyParser.urlencoded({ extended: false }))
     app.use(bodyParser.json())
     app.use(compression())
