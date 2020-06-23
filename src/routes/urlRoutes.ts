@@ -1,38 +1,47 @@
 import { Router } from 'express'
-import { validate } from 'class-validator'
-import { Url } from '../entity/Url'
+import { validateOrReject } from 'class-validator'
 import { getRepository } from 'typeorm'
+import { nanoid } from 'nanoid'
+import slugify from 'slugify'
+import { Url } from '../entity/Url'
 
 const router = Router()
+
+const slugifyOptions = {
+  replacement: '-',
+  remove: /[*+~.()'"!:@/]/g,
+  strict: false
+}
 
 router.post('/', async (req, res) => {
   const body = req.body as Url
 
   const link = new Url()
   link.url = body.url
-  link.slug = body.slug
+  link.slug = (
+    slugify(body.slug, slugifyOptions) || nanoid(6)
+  ).toLowerCase()
   link.createdAt = new Date()
 
-  validate(link)
-    .then(async (errors) => {
-      if (!errors.length) {
-        const UrlRepository = getRepository(Url)
-        try {
-          await UrlRepository.findOne(link)
-          const insertedLink = await UrlRepository.save(link)
-          res.json({
-            message: 'Link successfully created. 🔗',
-            link: {
-              url: 'lfgd.link',
-              slug: insertedLink.slug
-            }
-          })
-        } catch (e) {
-          res.status(403).json({ error: 'Slug in use. 🐌' })
-        }
-      } else {
-        res.status(400).json({ error: errors })
+  validateOrReject(link)
+    .then(async () => {
+      const UrlRepository = getRepository(Url)
+      try {
+        await UrlRepository.findOne(link)
+        const { slug } = await UrlRepository.save(link)
+        res.json({
+          message: 'Link successfully created. 🔗',
+          link: {
+            url: 'lfgd.link',
+            slug
+          }
+        })
+      } catch (e) {
+        res.status(403).json({ error: 'Slug in use. 🐌' })
       }
+    })
+    .catch((errors) => {
+      res.status(400).json({ error: errors })
     })
 })
 
