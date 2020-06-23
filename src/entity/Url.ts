@@ -10,6 +10,7 @@ export class Url {
 
   @Column()
   @IsUrl()
+  @Length(1, 255)
   url: string
 
   @Column()
