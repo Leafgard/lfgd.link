@@ -1,0 +1,32 @@
+{
+  "name": "lfgd.link",
+  "version": "0.1.0",
+  "description": "Free blazing fast custom URL shortener",
+  "main": "dist/server.js",
+  "repository": "https://github.com/Leafgard/lfgd.link.git",
+  "author": "Yann SEGET <dev@leafgard.fr>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "tsc",
+    "start:dev": "nodemon",
+    "start:prod": "npx pm2 start dist/server.js -i max --name leaflink",
+    "stop:prod": "npx pm2 stop leaflink"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "helmet": "^3.23.1"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.7.0",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.6",
+    "@types/helmet": "^0.0.47",
+    "@types/node": "^14.0.13",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  }
+}
