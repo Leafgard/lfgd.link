@@ -29,7 +29,7 @@ function App() {
     <div className='mask'>
       <div className='App'>
         <form onSubmit={onSubmit}>
-          <h1>Push your URLs with <span style={{ color: '#ED9B40', textDecoration: 'underline' }}>sparkles</span> through the <span style={{ color: '#5658dd', textDecoration: 'underline' }}>stars</span></h1>
+          <h1>Push your URLs with <span style={{ color: '#ED9B40', textDecoration: 'underline' }}>sparkles</span> through the <span style={{ color: '#5658dd', textDecoration: 'underline' }}>stars.</span></h1>
           <br/>
           <input type='url' value={url} onChange={(e) => setUrl(e.target.value)} className='form-input' placeholder='Your best URL'/>
           <br/>

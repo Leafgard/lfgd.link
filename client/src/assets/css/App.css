@@ -38,6 +38,10 @@ h1 {
   transform: translate(-50%, -50%);
 }
 
+.form-input:focus {
+  outline: none !important;
+}
+
 .form-input {
   padding: 12px 18px;
   height: 62px;
