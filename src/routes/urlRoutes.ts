@@ -13,6 +13,10 @@ const slugifyOptions = {
   strict: false
 }
 
+/**
+ * @description Create a shortened url for provided one
+ * @method POST
+ */
 router.post('/', async (req, res) => {
   const body = req.body as Url
 
@@ -45,6 +49,11 @@ router.post('/', async (req, res) => {
     })
 })
 
+/**
+ * @description Redirect request to matched slug url
+ * @method GET
+ * @param slug Slug to match
+ */
 router.get('/:slug', async (req, res) => {
   try {
     const UrlRepository = getRepository(Url)
