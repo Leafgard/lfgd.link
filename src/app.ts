@@ -38,9 +38,7 @@ createConnection()
     app.use(bodyParser.json())
     app.use(compression())
 
-    app.get('/', async (req, res) => {
-      res.json({ message: 'Welcome on leaf.link url shortener' })
-    })
+    app.use(express.static('client/build'))
 
     app.use(urlRoutes)
 
