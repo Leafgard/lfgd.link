@@ -2,9 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
