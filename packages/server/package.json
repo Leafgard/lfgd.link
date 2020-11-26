@@ -1,7 +1,7 @@
 {
   "name": "lfgd.link",
   "version": "1.0.0",
-  "description": "Ad-free blazing fast custom URL shortener",
+  "description": "A blazing-fast, ad-free URL shortener.",
   "main": "dist/server.js",
   "repository": "https://github.com/Leafgard/lfgd.link.git",
   "author": "Yann SEGET <dev@leafgard.fr>",

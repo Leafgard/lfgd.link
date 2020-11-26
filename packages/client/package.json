@@ -1,5 +1,6 @@
 {
   "name": "client",
+  "description": "A blazing-fast, ad-free URL shortener.",
   "version": "1.0.0",
   "private": true,
   "dependencies": {},
