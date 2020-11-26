@@ -13,13 +13,14 @@ import LinkController from './controllers/LinkController'
 
 const app = new Koa()
 
-app.use(serve('client/build', {
+app.use(serve('../client/build', {
     defer: false
 }))
 
 app
     .use(helmet())
-    //.use(rTracer.koaMiddleware())
+    // TODO: Implement logging
+    // TODO: Add tracer to logs -> use(rTracer.koaMiddleware())
     .use(json())
     .use(bodyParser())
     .use(compress(config.COMPRESS_OPTIONS))

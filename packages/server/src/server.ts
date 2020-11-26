@@ -9,7 +9,9 @@ const ormconfig = require('../ormconfig.js')
 
 createConnection(ormconfig)
     .then(() => {
-        runSentry()
+        // Run Sentry if wanted
+        config.SENTRY_DSN && runSentry()
+
         app.listen(config.APP_PORT, () => console.log(`leaf.link is listening on port ${ config.APP_PORT }`))
     })
     .catch(console.error)

@@ -4,8 +4,8 @@ services:
     image: mongo
     restart: always
 
-  lfgd:
-    build: .
+  server:
+    build: ./packages/server
     restart: always
     depends_on:
       - mongo

@@ -22,7 +22,7 @@ const webConfig = {
 }
 
 const monitoringConfig = {
-    SENTRY_DSN: process.env.SENTRY_DSN || 'UNKNOWN'
+    SENTRY_DSN: process.env.SENTRY_DSN || ''
 }
 
 const appConfig = {
@@ -34,12 +34,5 @@ const appConfig = {
     ...webConfig,
     ...monitoringConfig
 }
-
-/**
- * Checks for missing required environment variables
- */
-const missingEnv = []
-Object.keys(appConfig).forEach(key => appConfig[key] === 'UNKNOWN' && missingEnv.push(key))
-if (missingEnv.length) throw new Error(`Following ENVs are not defined: ${missingEnv.join(', ')}`)
 
 export default appConfig
