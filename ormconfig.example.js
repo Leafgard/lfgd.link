@@ -1,4 +1,4 @@
-const {config} = require('dotenv')
+const { config } = require('dotenv')
 config()
 
 const {
@@ -14,14 +14,15 @@ const {
 const isProd = NODE_ENV === 'production'
 
 module.exports = {
-    type: DB_TYPE || "mysql",
-    host: DB_HOST || "localhost",
-    port: DB_PORT || 3306,
+    useUnifiedTopology: true,
+    type: DB_TYPE || "mongodb",
+    host: DB_HOST || "mongo",
+    port: DB_PORT || 27017,
     username: DB_USER || "test",
     password: DB_PASS || "test",
     database: DB_NAME || "test",
     synchronize: true,
-    logging: false,
+    logging: true,
     entities: [
         `${isProd ? 'dist' : 'src'}/entity/**/*.${isProd ? 'js' : 'ts'}`
     ],

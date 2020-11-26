@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mongo:
+    image: mongo
+    restart: always
+
+  lfgd:
+    build: .
+    restart: always
+    depends_on:
+      - mongo
+    environment:
+      - SENTRY_DSN=
+    ports:
+    - "3002:3000"
