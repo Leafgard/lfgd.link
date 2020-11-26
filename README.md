@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://media.giphy.com/media/ohHt46zvqbLbQvYfxV/giphy.gif" alt="Markdownify" width="500"></a>
+  <a href="http://lfgd.link"><img src="https://media.giphy.com/media/JMjqi43CxeGhOnMVsK/giphy.gif" alt="Markdownify" width="500"></a>
   <br>
 </h1>
 
