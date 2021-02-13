@@ -68,7 +68,7 @@ export async function getLink(slugValidation: GetLinkValidation) {
         }
     } else {
         // No such slug
-        return {
+        throw {
             status: 404,
             error: 'No such slug. ❓'
         }

@@ -5,13 +5,13 @@ export class CreateLinkValidation {
         .string()
         .required()
         .max(255)
-    url: string
+    url!: string
 
     @jf
         .string()
         .min(6)
         .max(16)
-    slug: string
+    slug!: string
 }
 
 export class GetLinkValidation {
@@ -20,5 +20,5 @@ export class GetLinkValidation {
         .required()
         .min(6)
         .max(16)
-    slug: string
+    slug!: string
 }
