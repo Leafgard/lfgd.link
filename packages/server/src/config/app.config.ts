@@ -1,11 +1,8 @@
-import { config } from 'dotenv'
 import * as koaCompress from 'koa-compress'
 
-config()
-
 const webConfig = {
-    APP_PORT: process.env.APP_PORT || 3000,
-    APP_NAME: process.env.APP_NAME || 'LFGD.LINK',
+    APP_PORT: process.env.APP_PORT ?? 3000,
+    APP_NAME: process.env.APP_NAME ?? 'LFGD.LINK',
     COMPRESS_OPTIONS: {
         filter (contentType) {
             return /text/i.test(contentType)

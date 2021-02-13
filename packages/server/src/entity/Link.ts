@@ -3,16 +3,16 @@ import { Column, Entity, ObjectID, ObjectIdColumn } from 'typeorm'
 @Entity()
 export class Link {
   @ObjectIdColumn()
-  id: ObjectID
+  id!: ObjectID
 
   @Column()
-  url: string
+  url!: string
 
   @Column({
     unique: true
   })
-  slug: string
+  slug!: string
 
   @Column()
-  createdAt: Date
+  createdAt!: Date
 }

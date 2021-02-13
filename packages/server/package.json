@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "build": "tsc",
-    "start": "node ."
+    "start": "node -r dotenv/config ."
   },
   "dependencies": {
     "@sentry/node": "^5.27.6",
@@ -31,6 +31,8 @@
   "devDependencies": {
     "@types/koa": "^2.11.3",
     "@types/koa-bodyparser": "^4.3.0",
+    "@types/koa-compress": "^4.0.1",
+    "@types/koa-helmet": "^6.0.2",
     "@types/koa-json": "^2.0.18",
     "@types/koa-router": "^7.4.1",
     "@types/koa-static": "^4.0.1",
